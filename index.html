@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Mary | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .serif { font-family: 'Playfair Display', serif; }
+        .sans { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#FAFAF9] sans text-stone-900">
+
+    <nav class="p-6 flex justify-between items-center bg-stone-900 text-white sticky top-0 z-50">
+        <a href="index.html" class="serif text-2xl tracking-tighter">CHEF MARY</a>
+        <div class="space-x-8 text-sm uppercase tracking-widest hidden md:flex">
+            <a href="index.html" class="text-emerald-400">Home</a>
+            <a href="gallery.html" class="hover:text-emerald-400 transition">The Gallery</a>
+            <a href="about.html" class="hover:text-emerald-400 transition">Biography</a>
+            <a href="contact.html" class="bg-emerald-600 px-5 py-2 rounded-full hover:bg-emerald-500 transition">Work with Me</a>
+        </div>
+    </nav>
+
+    <header class="h-[80vh] relative flex items-center px-6 md:px-20 bg-stone-800 text-white overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover opacity-40" alt="Chef Mary Kitchen">
+        <div class="relative z-10 max-w-2xl">
+            <span class="text-emerald-400 uppercase tracking-widest text-sm mb-4 block">Executive Chef | Radisson Blu</span>
+            <h1 class="serif text-5xl md:text-7xl mb-6 leading-tight">Crafting Culinary Memories in Nairobi</h1>
+            <p class="text-lg text-stone-300 mb-8 font-light">Experience the intersection of traditional heritage and modern gastronomy through the lens of Chef Mary.</p>
+            <a href="contact.html" class="border-2 border-white px-8 py-3 rounded-full hover:bg-white hover:text-stone-900 transition">Book an Experience</a>
+        </div>
+    </header>
+
+    <section class="py-24 px-6 max-w-5xl mx-auto text-center">
+        <h2 class="serif text-4xl mb-8 italic text-stone-800">"Food is the most primitive form of comfort."</h2>
+        <p class="text-xl leading-relaxed text-stone-600 font-light">
+            With over a decade of leadership in world-class kitchens, my mission is to elevate local ingredients into global masterpieces. Whether it's a private tasting for dignitaries or a consulting project for a new restaurant, excellence is my only standard.
+        </p>
+        <div class="mt-12">
+            <a href="about.html" class="text-emerald-600 font-semibold border-b-2 border-emerald-600 pb-1 hover:text-emerald-700 transition">Read the Full Biography →</a>
+        </div>
+    </section>
+
+    <section class="py-20 bg-stone-100 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-12">
+                <h3 class="serif text-3xl">Signature Creations</h3>
+                <a href="gallery.html" class="text-stone-500 hover:text-stone-900 text-sm uppercase tracking-widest">View All Works</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=600" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <h4 class="serif text-xl mb-2">Modern Swahili Platter</h4>
+                        <p class="text-stone-500 text-sm mb-4">A deconstructed take on coastal classics.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=600" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <h4 class="serif text-xl mb-2">Pan-African Fusion</h4>
+                        <p class="text-stone-500 text-sm mb-4">Elevating traditional grains into fine dining.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80&w=600" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <h4 class="serif text-xl mb-2">Artisanal Pastry</h4>
+                        <p class="text-stone-500 text-sm mb-4">Precision and sweetness combined.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-stone-900 text-white py-16 px-6 border-t border-stone-800">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+        <div>
+            <h3 class="serif text-2xl mb-4">Chef Mary</h3>
+            <p class="text-stone-400 text-sm leading-relaxed">Redefining the culinary landscape of Nairobi, one plate at a time. Available for private dining and consultancy.</p>
+        </div>
+
+        <div>
+            <h4 class="text-xs uppercase tracking-[0.2em] text-emerald-500 mb-6">Explore</h4>
+            <ul class="space-y-4 text-sm text-stone-300">
+                <li><a href="index.html" class="hover:text-white transition">The Home</a></li>
+                <li><a href="gallery.html" class="hover:text-white transition">Culinary Gallery</a></li>
+                <li><a href="about.html" class="hover:text-white transition">The Story</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-xs uppercase tracking-[0.2em] text-emerald-500 mb-6">Connect</h4>
+            <div class="flex justify-center md:justify-start space-x-6">
+                <a href="#" class="text-stone-300 hover:text-emerald-400 transition">Instagram</a>
+                <a href="#" class="text-stone-300 hover:text-emerald-400 transition">LinkedIn</a>
+            </div>
+            <p class="mt-6 text-xs text-stone-500 italic">Located at Radisson Blu, Nairobi.</p>
+        </div>
+    </div>
+    <div class="text-center mt-12 pt-8 border-t border-stone-800 opacity-30 text-[10px] uppercase tracking-widest">
+        &copy; 2026 Chef Mary. Professional Portfolio.
+    </div>
+</footer>
+
+</body>
+</html>
