@@ -38,11 +38,68 @@
 </nav>
 
 <script>
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobileMenu');
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
+    // THE 20 GLOBAL CUISINES & HIGH-END PHOTOS
+    const recipes = [
+        { id: 1, title: "Miso-Glazed Black Cod", cuisine: "Japanese Fine Dining", photo: "https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?auto=format&fit=crop&q=80&w=800", secret: "Marinate for exactly 72 hours in saikyo miso. The sugar must caramelize under the broiler without burning the delicate fish." },
+        { id: 2, title: "Classic Beef Wellington", cuisine: "British Classic", photo: "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=800", secret: "Wrap the tenderloin in a very thin crepe before adding the mushroom duxelles; it stops the puff pastry from getting soggy." },
+        { id: 3, title: "Truffle Mushroom Risotto", cuisine: "Northern Italian", photo: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&q=80&w=800", secret: "Never wash the Arborio rice. The natural starch is what creates the creamy emulsion with the butter and Parmigiano-Reggiano." },
+        { id: 4, title: "Lobster Thermidor", cuisine: "French Haute Cuisine", photo: "https://images.unsplash.com/photo-1559742811-822873691df8?auto=format&fit=crop&q=80&w=800", secret: "A touch of dry mustard and a splash of cognac in the Gruyère sauce elevates the natural sweetness of the lobster meat." },
+        { id: 5, title: "Saffron Seafood Paella", cuisine: "Spanish Heritage", photo: "https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&q=80&w=800", secret: "Do not stir the rice once the broth is added. You want to achieve the 'socarrat'—that perfect crispy, caramelized crust at the bottom of the pan." },
+        { id: 6, title: "Peruvian Ceviche", cuisine: "South American", photo: "https://images.unsplash.com/photo-1534422298391-e4f8c171dd36?auto=format&fit=crop&q=80&w=800", secret: "Only cure the sea bass in Leche de Tigre for exactly three minutes before serving. It should be raw inside, not 'cooked' dry by the acid." },
+        { id: 7, title: "Duck Confit", cuisine: "French Rustic", photo: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&q=80&w=800", secret: "Cure the duck legs in sea salt and fresh thyme for 24 hours before slow-cooking them in their own fat at exactly 90°C." },
+        { id: 8, title: "Wagyu Beef Tataki", cuisine: "Modern Japanese", photo: "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&q=80&w=800", secret: "Sear the outside on a screaming hot cast iron for just 10 seconds per side, then immediately plunge into an ice bath to stop the cooking." },
+        { id: 9, title: "Moroccan Lamb Tagine", cuisine: "North African", photo: "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&q=80&w=800", secret: "Toast the Ras el Hanout spices whole before grinding. It awakens the essential oils and deepens the entire flavor profile of the stew." },
+        { id: 10, title: "Butter Poached Halibut", cuisine: "New American", photo: "https://images.unsplash.com/photo-1514326640554-66623ea20d34?auto=format&fit=crop&q=80&w=800", secret: "Keep the butter bath strictly between 70°C and 75°C. Boiling will ruin the delicate, buttery flake of the fish." },
+        { id: 11, title: "Traditional Peking Duck", cuisine: "Imperial Chinese", photo: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?auto=format&fit=crop&q=80&w=800", secret: "Separate the skin from the meat by pumping air under it, then let it dry in the fridge for 48 hours to guarantee a glass-like crunch." },
+        { id: 12, title: "Osso Buco Milanese", cuisine: "Italian Classic", photo: "https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&q=80&w=800", secret: "The gremolata is non-negotiable. The fresh lemon zest, garlic, and parsley cut directly through the heavy richness of the veal marrow." },
+        { id: 13, title: "Spicy Tuna Tartare", cuisine: "Global Fusion", photo: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=800", secret: "Keep your knife and cutting board ice cold. Warm tuna loses its firm, luxurious texture before it even hits the plate." },
+        { id: 14, title: "Chicken Tikka Masala", cuisine: "Indian Fusion", photo: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800", secret: "Double marinate: first in lemon and salt to tenderize, then in thick yogurt and spices to coat and protect it from the tandoor heat." },
+        { id: 15, title: "Steak au Poivre", cuisine: "French Bistro", photo: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=800", secret: "Crush the peppercorns coarsely with a heavy pan. A pepper grinder makes them too fine and will overpower the delicate cognac cream sauce." },
+        { id: 16, title: "Tom Yum Soup", cuisine: "Thai Traditional", photo: "https://images.unsplash.com/photo-1548943487-a2e4b43fd0b5?auto=format&fit=crop&q=80&w=800", secret: "Bruise the lemongrass and galangal heavily with the back of a knife to release their oils, but do not chop them into the soup." },
+        { id: 17, title: "Braised Short Ribs", cuisine: "French-American", photo: "https://images.unsplash.com/photo-1544025162-8a15fd973508?auto=format&fit=crop&q=80&w=800", secret: "Reduce the red wine by half before adding the beef stock. It removes the raw alcohol bite and deeply concentrates the dark fruit notes." },
+        { id: 18, title: "Classic Tiramisu", cuisine: "Italian Dessert", photo: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&q=80&w=800", secret: "Whip the mascarpone and egg yolks over a gentle double boiler. It creates a velvet texture and safely pasteurizes the eggs." },
+        { id: 19, title: "Authentic Beef Pho", cuisine: "Vietnamese", photo: "https://images.unsplash.com/photo-1582878826629-29b7ad1cb431?auto=format&fit=crop&q=80&w=800", secret: "Char the onions and ginger heavily over an open flame until completely blackened before adding them to the broth. It adds a smoky sweetness." },
+        { id: 20, title: "Vanilla Bean Crème Brûlée", cuisine: "French Dessert", photo: "https://images.unsplash.com/photo-1472555694391-ae580eb59efa?auto=format&fit=crop&q=80&w=800", secret: "Bake the custards in a water bath to ensure even, gentle cooking. Use raw turbinado sugar for the thickest, glassiest crust." }
+    ];
+
+    // THIS BUILDS THE 20 CARDS AUTOMATICALLY
+    function buildGallery() {
+        const grid = document.getElementById('recipe-grid');
+        grid.innerHTML = ''; // Clears the grid first
+        
+        recipes.forEach(recipe => {
+            const card = `
+                <div class="bg-stone-900 rounded-3xl overflow-hidden border border-stone-800 hover:border-emerald-500/50 transition-all duration-500 group shadow-2xl">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="${recipe.photo}" alt="${recipe.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="serif text-xl font-bold mb-1 text-white">${recipe.title}</h4>
+                        <p class="text-emerald-500 text-[10px] uppercase tracking-widest mb-6 font-bold">${recipe.cuisine}</p>
+                        
+                        <button onclick="toggleRecipe('content-${recipe.id}')" class="w-full border border-stone-700 py-3 rounded-xl text-[10px] uppercase tracking-widest font-bold text-stone-300 hover:bg-white hover:text-black transition">
+                            View Chef's Secret +
+                        </button>
+                        
+                        <div id="content-${recipe.id}" class="hidden mt-6 pt-6 border-t border-stone-800 animate-fade-in">
+                            <h5 class="text-emerald-400 text-xs font-bold uppercase mb-2 tracking-widest">Chef's Secret</h5>
+                            <p class="text-stone-300 text-sm italic leading-relaxed">"${recipe.secret}"</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += card;
+        });
     }
+
+    // THIS OPENS AND CLOSES THE RECIPE
+    function toggleRecipe(id) {
+        const element = document.getElementById(id);
+        element.classList.toggle('hidden');
+    }
+
+    // RUN THE BUILDER WHEN THE PAGE LOADS
+    window.onload = buildGallery;
 </script>
 
     <header class="py-16 px-6 text-center bg-stone-100">
@@ -119,5 +176,6 @@
 </body>
 
 </html>
+
 
 
