@@ -13,17 +13,37 @@
 </head>
 <body class="bg-[#FAFAF9] sans text-stone-900">
 
-    <nav class="sticky top-0 w-full bg-stone-900/95 backdrop-blur-md text-white p-5 z-[100] border-b border-stone-800">
+    <nav class="sticky top-0 w-full bg-stone-900/95 backdrop-blur-md text-white p-4 z-[100] border-b border-stone-800">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="serif text-2xl tracking-tighter hover:text-emerald-400 transition">CHEF MARY</a>
-        <div class="hidden md:flex space-x-10 text-xs uppercase tracking-widest font-semibold">
+        <a href="index.html" class="serif text-xl md:text-2xl tracking-tighter hover:text-emerald-400 transition">CHEF MARY</a>
+        
+        <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-widest font-semibold">
             <a href="index.html" class="hover:text-emerald-400 transition">Home</a>
-            <a href="gallery.html" class="hover:text-emerald-400 transition">Recipes & Cuisines</a>
+            <a href="gallery.html" class="hover:text-emerald-400 transition">Recipes</a>
             <a href="about.html" class="hover:text-emerald-400 transition">Biography</a>
-            <a href="contact.html" class="bg-emerald-600 px-6 py-2 rounded-full hover:bg-emerald-500 transition">Inquire</a>
+            <a href="contact.html" class="bg-emerald-600 px-5 py-2 rounded-full hover:bg-emerald-500 transition">Inquire</a>
         </div>
+
+        <button onclick="toggleMobileMenu()" class="md:hidden text-emerald-400">
+            <span class="text-xs uppercase font-bold">Menu</span>
+        </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden flex-col space-y-4 p-6 bg-stone-900 border-t border-stone-800 md:hidden">
+        <a href="index.html" class="text-sm uppercase tracking-widest">Home</a>
+        <a href="gallery.html" class="text-sm uppercase tracking-widest">Recipes</a>
+        <a href="about.html" class="text-sm uppercase tracking-widest">Biography</a>
+        <a href="contact.html" class="text-emerald-400 text-sm uppercase tracking-widest font-bold">Inquire Now</a>
     </div>
 </nav>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+    }
+</script>
 
     <header class="py-16 px-6 text-center">
         <h1 class="serif text-5xl mb-4 italic">Get in Touch</h1>
@@ -105,3 +125,4 @@
 </body>
 
 </html>
+
